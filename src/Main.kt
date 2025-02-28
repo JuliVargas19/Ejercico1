@@ -1,7 +1,8 @@
+import kotlin.random.Random
 
 fun main() {
 
-    var monedasDe20: Int = 0
+    /*var monedasDe20: Int = 0
     var monedasDe50: Int = 0
     var monedaDe100: Int = 0
     var monedaDe200: Int = 0
@@ -76,7 +77,50 @@ fun main() {
                 }
 
         }
+*/
+        println("Ingresar Cantidad De Dinero:")
+        var dinero = readLine()?.toIntOrNull() ?: 0
 
-    }
+        if (dinero <= 0){
+            println("Debes ingresar una cantidad valida para poder jugar")
+            return
+        }
+
+        while (true){
+            println("Apostando...")
+            val numero = Random.nextInt(1,4)
+            println("El numero es: $numero")
+
+            when (numero){
+                1-> {
+                    dinero *= 2
+                    println("Has multiplicado tu dinero, Ahora tu saldo es:$dinero")
+                } 2->{
+                    dinero /= 2
+                    println("Perdiste la mitad de tu dinero, Ahora tu saldo es: $dinero")
+                } 3->{
+                    println("Has perdido todo tu dinero, ¡Game over!")
+                break
+                }
+
+            }
+            while(true){
+                    println("Quieres seguir jugando (1/2): ")
+                    val continuar = readLine()?.lowercase()
+
+                    if(continuar == "1"){
+                        break
+                    }else if(continuar == "2"){
+                        println("Decideste no seguir jugando, Te retiras con: $dinero")
+                        return
+                    }
+
+                }
+
+            }
+
+        }
+
+
 
 
