@@ -79,21 +79,41 @@ fun main() {
 
         }
 */
-    println("Bienvenidos a el juego de los dados")
+    println("Batalla Pokémon")
 
-        for (i in 1..10){
-            val dado1 = Random.nextInt(1,7)
-            val dado2 = Random.nextInt(1,7)
+    println("Ingrese el pokémon de ataque tipo: Agua, Fuego, Planta, Eléctrico:")
+    val ataque = readln()
 
-            println("Jugada $i: Dado 1 =$dado1, Dado 2 =$dado2 ")
+    println("Ingrese el pokémon de defensa tipo: Agua, Fuego, Planta, Eléctrico:")
+    val defensa = readln()
 
-            if (dado1 > dado2){
-                println("Gano Dado 1")
-            } else if (dado2 > dado1){
-                println("Gano Dado 2")
-            }
+    println("Ingrese nivel de ataque:")
+    var atacante = readln().toInt()
+    if (atacante < 1) atacante = 1
+    if (atacante < 100) atacante = 100
 
+    println("Ingrese nivel de defensa:")
+    var defensor = readln().toInt()
+    if (defensor < 1) defensor = 1
+    if (defensor < 100) defensor = 100
+
+    var efectividad = 1.0
+
+    if ((ataque == "Agua" && defensa == "Fuego")||
+         (ataque == "Fuego" && defensa == "Planta")||
+         (ataque == "Planta" && defensa == "Agua")||
+         (ataque == "Eléctrico" && defensa == "Agua")) {
+          efectividad = 2.0
+    } else if ((ataque == "Fuego" && defensa == "Agua")||
+                (ataque == "Agua" && defensa == "Planta")||
+                (ataque == "Planta" && defensa == "Fuego")||
+                (ataque == "Eléctrico" && defensa == "Planta")){
+            efectividad = 0.5
         }
+        val daño = 50 * (atacante.toDouble() / defensor) * efectividad
+
+        println("Daño causado el ataque es: ${"%.2f".format(daño)}")
+
     }
 
 
