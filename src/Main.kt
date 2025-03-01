@@ -1,7 +1,8 @@
+import kotlin.random.Random
 
 fun main() {
 
-    var monedasDe20: Int = 0
+    /*var monedasDe20: Int = 0
     var monedasDe50: Int = 0
     var monedaDe100: Int = 0
     var monedaDe200: Int = 0
@@ -75,8 +76,24 @@ fun main() {
                     else -> println("Opcion invalida, intentar de nuevo")
                 }
 
-        }
 
+        }
+*/
+    println("Bienvenidos a el juego de los dados")
+
+        for (i in 1..10){
+            val dado1 = Random.nextInt(1,7)
+            val dado2 = Random.nextInt(1,7)
+
+            println("Jugada $i: Dado 1 =$dado1, Dado 2 =$dado2 ")
+
+            if (dado1 > dado2){
+                println("Gano Dado 1")
+            } else if (dado2 > dado1){
+                println("Gano Dado 2")
+            }
+
+        }
     }
 
 
