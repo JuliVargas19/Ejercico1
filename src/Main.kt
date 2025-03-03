@@ -123,6 +123,89 @@ fun main() {
         var gastosCandidato1: Long = 0
         var gastosCandidato2: Long = 0
         var gastosCandidato3: Long = 0
+
+        while (true){
+            println("Votaciones Representante Municipio")
+            println("1. Votar:")
+            println("2. Costos de campaña:")
+            println("3. Vaciar urnas:")
+            println("4. Numero total de votos:")
+            println("5. Porcentaje de votos obtenidos por candidato:")
+            println("6. Costo promedio de campaña en las elecciones:")
+            println("7. Elija su opcion:")
+
+            when (input.nextInt()){
+                1 -> {
+                    println("Elija un candidato (1-3):")
+                    val opcion = input.nextInt()
+
+                    println("Selecciona medio de influencia (1, Internet, 2. Radio, 3. Television):")
+                    val medio = input.nextInt()
+
+                    val costo = when (medio){
+                        1-> 700000
+                        2-> 200000
+                        3-> 600000
+                        else -> {
+                            println("Opcion no valida")
+                            continue
+                        }
+                    }
+
+                    when (opcion){
+                        1-> {
+                            votosCandidato1++
+                            gastosCandidato1 += costo
+                        }
+                        2-> {
+                            votosCandidato2++
+                            gastosCandidato2 += costo
+                        }
+                        3->{
+                            votosCandidato3++
+                            gastosCandidato3 += costo
+                        }
+                        else -> println("Candidato no valido")
+                    }
+
+                }
+                2-> {
+                    println("Gastos de campaña por candidato:")
+                    println("Candidato 1: \$${gastosCandidato1}")
+                    println("Candidato 2: \$${gastosCandidato2}")
+                    println("Candidato 3: \$${gastosCandidato3}")
+                }
+                3-> {
+                    votosCandidato1 = 0
+                    votosCandidato2 = 0
+                    votosCandidato3 = 0
+                    gastosCandidato1 = 0
+                    gastosCandidato2 = 0
+                    gastosCandidato3 = 0
+                    println("Urna vacia")
+                }
+                4-> println("Total de votos: ${votosCandidato1 + votosCandidato2 + votosCandidato3}")
+                5-> {
+                    val total = (votosCandidato1 + votosCandidato2 + votosCandidato3).toDouble()
+                    if (total > 0){
+                        println("Candidato 1: ${"%2f".format((votosCandidato1 / total) * 100)}%")
+                        println("Candidato 2: ${"%2f".format((votosCandidato2 / total) * 100)}%")
+                        println("Candidato 3: ${"%2f".format((votosCandidato3 / total) * 100)}%")
+                    }else println("No hay votos")
+                }
+                6-> {
+                    val totalGastos = gastosCandidato1 + gastosCandidato2 + gastosCandidato3
+                    val totalVotos = votosCandidato1 + votosCandidato2 + votosCandidato3
+                    if (totalVotos > 0) println("Costo de campaña: \$${totalGastos / totalVotos}")
+                    else println("No hay datos suficientes para calcular el costo")
+                }
+                7-> {
+                    println("Saliendo del programa...")
+                }
+
+            }
+
+        }
     }
 
 
