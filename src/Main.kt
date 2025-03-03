@@ -1,3 +1,4 @@
+import java.util.Scanner
 import kotlin.random.Random
 
 fun main() {
@@ -78,7 +79,7 @@ fun main() {
 
 
         }
-*/
+
     println("Batalla Pokémon")
 
     println("Ingrese el pokémon de ataque tipo: Agua, Fuego, Planta, Eléctrico:")
@@ -113,7 +114,15 @@ fun main() {
         val daño = 50 * (atacante.toDouble() / defensor) * efectividad
 
         println("Daño causado el ataque es: ${"%.2f".format(daño)}")
+*/
 
+    val input = Scanner(System.`in`)
+        var votosCandidato1 = 0
+        var votosCandidato2 = 0
+        var votosCandidato3 = 0
+        var gastosCandidato1: Long = 0
+        var gastosCandidato2: Long = 0
+        var gastosCandidato3: Long = 0
     }
 
 
